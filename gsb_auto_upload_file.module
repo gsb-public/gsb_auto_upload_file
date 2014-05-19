@@ -18,7 +18,6 @@ function gsb_auto_upload_file_element_info_alter(&$type) {
  * #pre_render callback for managed_file elements.
  */
 function gsb_auto_upload_file_managed_file_pre_render($element) {
-  dpm($element);
   $element['#attached']['js'][drupal_get_path('module', 'gsb_auto_upload_file') . '/js/gsb_auto_upload_file.js'] = array();
   return $element;
 }
