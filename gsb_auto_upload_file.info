@@ -1,0 +1,5 @@
+name = GSB Auto Upload File
+description = Automatically upload files
+dependencies[] = file
+package = GSB
+core = 7.x
