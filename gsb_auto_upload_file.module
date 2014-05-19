@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Automatically upload files.
+ */
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function gsb_auto_upload_file_element_info_alter(&$type) {
+  if (isset($type['managed_file'])) {
+    $type['managed_file']['#pre_render'][] = 'gsb_auto_upload_file_managed_file_pre_render';
+  }
+}
+
+/**
+ * #pre_render callback for managed_file elements.
+ */
+function gsb_auto_upload_file_managed_file_pre_render($element) {
+  dpm($element);
+  $element['#attached']['js'][drupal_get_path('module', 'gsb_auto_upload_file') . '/js/gsb_auto_upload_file.js'] = array();
+  return $element;
+}
